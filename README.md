@@ -2,11 +2,31 @@
 
 An another implementation of a numeric binary tree for C/C++
 
-### Usage
+### Building
 
-To use `tree` you should consider inserting the following headers.
+To build the example:
 
-* stdio.h
-* stddef.h
-* stdlib.h
-* malloc.h
+A) Create a build directory:
+
+```bash
+mkdir build
+cd build
+```
+
+B) Generate build files with CMake:
+
+```bash
+cmake ..
+```
+
+C) Compile the example:
+
+```bash
+make
+```
+
+D) Run the example:
+
+```bash
+./example
+```
