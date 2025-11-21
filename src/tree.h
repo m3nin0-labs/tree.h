@@ -1,6 +1,9 @@
 #ifndef TREE_H
 #define TREE_H
 
+#include <stdio.h>
+#include <stdlib.h>
+
 typedef struct ax {
     int key;
     struct ax * left, * right;
@@ -18,6 +21,8 @@ typedef struct ax {
 Node * tree(int key) {
     Node * tmp = (Node *) malloc(sizeof(Node));
     tmp->key = key;
+    tmp->left = NULL;
+    tmp->right = NULL;
 
     return tmp;
 }
@@ -34,6 +39,8 @@ Node * tree(int key) {
 Node * node(int key) {
     Node * tmp = (Node *) malloc(sizeof(Node));
     tmp->key = key;
+    tmp->left = NULL;
+    tmp->right = NULL;
 
     return tmp;
 }
@@ -56,6 +63,8 @@ Node * insert(Node * root, Node * newNode) {
     } else {
         root->right = insert(root->right, newNode);
     }
+    
+    return root;
 }
 
 /**
@@ -130,11 +139,11 @@ void inorder(Node * root) {
  */
 void posorder(Node * root) {
     if (root->left != NULL) {
-        inorder(root->left);
+        posorder(root->left);
     }
 
     if (root->right != NULL) {
-        inorder(root->right);
+        posorder(root->right);
     }
 
     printf("%d\n", root->key);
